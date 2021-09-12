@@ -3,8 +3,8 @@ import colors from 'vuetify/es5/util/colors'
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    titleTemplate: '%s - ydmail-frontend',
-    title: 'ydmail-frontend',
+    titleTemplate: '%s - Yesterdaymail',
+    title: 'Home',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
@@ -39,6 +39,7 @@ export default {
   modules: [
     // https://go.nuxtjs.dev/pwa
     '@nuxtjs/pwa',
+    '@nuxtjs/i18n'
   ],
 
   // PWA module configuration: https://go.nuxtjs.dev/pwa
@@ -48,11 +49,27 @@ export default {
     }
   },
 
+  i18n: {
+    locales: [
+      { code: 'en', iso: 'en-US', file: 'en.js', dir: 'ltr' },
+      { code: 'es', iso: 'es-ES', file: 'es.js', dir: 'ltr' },
+    ],
+    defaultLocale: 'en',
+    langDir: '~/locales/',
+    detectBrowserLanguage: {
+      useCookie: true,
+      cookieDomain: null,
+      cookieKey: 'i18n_redirected',
+      alwaysRedirect: true,
+      fallbackLocale: 'en'
+    }
+  },
+
   // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify
   vuetify: {
     customVariables: ['~/assets/variables.scss'],
     theme: {
-      dark: true,
+      dark: false,
       themes: {
         dark: {
           primary: colors.blue.darken2,
